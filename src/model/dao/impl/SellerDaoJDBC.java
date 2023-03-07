@@ -17,81 +17,60 @@ public class SellerDaoJDBC implements SellerDao{
 	
 	private Connection conn;
 	
-	
 	public SellerDaoJDBC(Connection conn) {
 		this.conn = conn;
 	}
 	
+	//a primeiro metodo é o INSERT para INSERIR no BD um OBJETO do tipo
+	//SELLER...
 	@Override
 	public void insert(Seller obj) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	//criano a operação UPDATE para atualizr os valores do BD, q recebe um
-	//OBJETO do tipo SELLER como argumento
 	@Override
 	public void update(Seller obj) {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 	@Override
 	public void deleteById(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}
 
+
 	@Override
 	public Seller findById(Integer id) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
-
 			st = conn.prepareStatement(
-//basicamente buscando todos campos de vendedor + o nome do departamento, q ganha um
-//restrigimos a BUSCA onde o ID do SELLER seja IGUAL ao valor passado
 					"SELECT seller.*,department.Name as DepName " 
 					+ "FROM seller INNER JOIN department "
 					+ "ON seller.DepartmentId = department.Id "
 					+ "WHERE seller.Id = ?");
 			
-		//definindo qual sera o VALOR do "???" INTERROGACAO de WHERE seller.id=?
-		//no caso, sera o VALOR do ID q foi passado la em cima como parametro
-		//no metodo FINDBYID
-			st.setInt(1, id);
 
+			st.setInt(1, id);
 			rs = st.executeQuery();
+
 
 			if (rs.next()) {
 
-				Department dep = new Department();
+				Department dep = instantiateDepartment(rs);
 
-				dep.setId(rs.getInt("DepartmentId"));
+				Seller obj = instantiateSeller(rs, dep);
 
-				dep.setName(rs.getString("DepName"));
-
-				Seller obj = new Seller();
-
-				obj.setId(rs.getInt("Id"));
-
-				obj.setName(rs.getString("Name"));
-
-				obj.setEmail(rs.getString("Email"));
-
-				obj.setBaseSalary(rs.getDouble("BaseSalary"));
-
-				obj.setBirthDate(rs.getDate("BirthDate"));
-
-				obj.setDepartment(dep);
-				
 				return obj;
 			}
 			return null;
 		}
-		
+
 		catch(SQLException e) {
-		
+
 			throw new DbException(e.getMessage());
 		}
 
@@ -101,10 +80,39 @@ public class SellerDaoJDBC implements SellerDao{
 		}
 		
 	}
+	
+
+	private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException {
+		Seller obj = new Seller();
+
+		obj.setId(rs.getInt("Id"));
+
+		obj.setName(rs.getString("Name"));
+
+		obj.setEmail(rs.getString("Email"));
+
+		obj.setBaseSalary(rs.getDouble("BaseSalary"));
+
+		obj.setBirthDate(rs.getDate("BirthDate"));
+
+		obj.setDepartment(dep);
+
+		return obj;
+	}
+
+	//criando o metodo q vai PEGAR os DADOS do BANCO q sao da tabela
+	//DEPARTMENT e ADD esses dados ao OBJETO do tipo DEPARTMENT
+	private Department instantiateDepartment(ResultSet rs) throws SQLException {
+		Department dep = new Department();
+		dep.setId(rs.getInt("DepartmentId"));
+		dep.setName(rs.getString("DepName"));
+		
+		return dep;
+	}
 
 	@Override
 	public List<Seller> findAll() {
 		// TODO Auto-generated method stub
 		return null;
-	}	
+	}
 }

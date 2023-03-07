@@ -7,6 +7,7 @@ import model.entities.Department;
 public interface DepartmentDao {
 	
 	//declarando as OPERACOES q tem q ser feitas em um DEPARTMENT
+
 	void insert(Department obj);
 	
 	void update(Department obj);

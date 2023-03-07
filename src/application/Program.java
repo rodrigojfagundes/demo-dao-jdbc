@@ -12,15 +12,14 @@ public class Program {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		
-		//instanciando um SELLERDAO, chamado de sellerDao... DAI em VEZ de dar um
-		//NEW sellerDao... ..... Nos vamos chamar o METODO CREATESELLERDAO
-		//q ta dentro da CLASSE DAOFACTORY... E esse metodo vai ser o responsavel
-		//por criar um novo SellerDao :)
 		SellerDao sellerDao = DaoFactory.createSellerDao();
+		
+		
+		System.out.println("=== TEST 1 : seller findById ===");
 		
 		Seller seller = sellerDao.findById(3);
 		
 		System.out.println(seller);
 	}
+
 }

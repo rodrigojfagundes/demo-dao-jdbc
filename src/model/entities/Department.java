@@ -8,7 +8,6 @@ public class Department implements Serializable{
 
 	private Integer id;
 	private String name;
-	
 
 	public Department() {
 	}
@@ -45,6 +44,9 @@ public class Department implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+
+
+
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -66,5 +68,7 @@ public class Department implements Serializable{
 	@Override
 	public String toString() {
 		return "Department [id=" + id + ", name=" + name + "]";
-	}	
+	}
+
+	
 }
