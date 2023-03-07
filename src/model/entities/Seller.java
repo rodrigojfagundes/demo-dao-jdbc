@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class Seller implements Serializable {
 	
-
 	private static final long serialVersionUID = 1L;
+	
 	
 	private Integer id;
 	private String name;
@@ -83,8 +83,7 @@ public class Seller implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-	
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -102,12 +101,10 @@ public class Seller implements Serializable {
 		return true;
 	}
 	
-	
-	
+
 	@Override
 	public String toString() {
 		return "Seller [id=" + id + ", name=" + name + ", email=" + email + ", birthDate=" + birthDate + ", baseSalary="
 				+ baseSalary + ", department=" + department + "]";
 	}
-
 }
