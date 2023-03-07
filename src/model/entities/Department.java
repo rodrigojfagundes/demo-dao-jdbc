@@ -2,31 +2,21 @@ package model.entities;
 
 import java.io.Serializable;
 
-//criando a classe department, q implementa a INTERFACE SERIALIZABLE
 public class Department implements Serializable{
 
-	//implementando o SERIAZABLE... para transformar os OBJETOS em sequencia
-	//de BITS... isso e para ser guardado em arquivo/ ou trafegado em rede, etc...
 	private static final long serialVersionUID = 1L;
-	
-	//declarando os atributos/variaveis da classe
+
 	private Integer id;
 	private String name;
-	
-	
-	//construindo o construtor SEM argumentos
+
 	public Department() {
 	}
 
-
-	//construindo o construtor com argumentos
 	public Department(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 
-	//implementando os GET e SET para podermos alterar os valores das
-	//variaeis/atributos ID e NAME
 	public Integer getId() {
 		return id;
 	}
@@ -55,10 +45,6 @@ public class Department implements Serializable{
 		return result;
 	}
 
-
-	
-	//gerando o HASHCODE para podermos COMPARAR o valor dos OBJETOS pelo CONTEUDO
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -76,7 +62,6 @@ public class Department implements Serializable{
 		return true;
 	}
 
-	//gerando o TOSTRING para podermos imprimir de FORMA LEGIVEL
 	@Override
 	public String toString() {
 		return "Department [id=" + id + ", name=" + name + "]";
