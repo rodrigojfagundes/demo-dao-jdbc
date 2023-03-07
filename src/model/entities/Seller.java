@@ -12,12 +12,13 @@ public class Seller implements Serializable {
 	private String email;
 	private Date birthDate;
 	private Double baseSalary;
-
+	
 	private Department department;
 	
 	public Seller() {
 	}
 
+	
 	public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department) {
 		this.id = id;
 		this.name = name;
@@ -27,7 +28,6 @@ public class Seller implements Serializable {
 		this.department = department;
 	}
 	
-
 	public Integer getId() {
 		return id;
 	}
@@ -101,7 +101,6 @@ public class Seller implements Serializable {
 			return false;
 		return true;
 	}
-	
 	
 	@Override
 	public String toString() {
