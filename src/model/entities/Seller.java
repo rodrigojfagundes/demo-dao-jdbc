@@ -4,14 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Seller implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer id;
 	private String name;
 	private String email;
 	private Date birthDate;
 	private Double baseSalary;
+
 	private Department department;
 	
 	public Seller() {
@@ -26,6 +27,7 @@ public class Seller implements Serializable {
 		this.department = department;
 	}
 	
+
 	public Integer getId() {
 		return id;
 	}
@@ -82,6 +84,7 @@ public class Seller implements Serializable {
 		return result;
 	}
 	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -98,6 +101,7 @@ public class Seller implements Serializable {
 			return false;
 		return true;
 	}
+	
 	
 	@Override
 	public String toString() {
