@@ -2,14 +2,11 @@ package model.dao;
 
 import java.util.List;
 
+import model.entities.Department;
 import model.entities.Seller;
 
-//criando INTERFACE SellerDAO
 public interface SellerDao {
-	
-		//declarando as OPERACOES q tem q ser feitas em uma CLASSE q IMPLEMENTA
-		//essa INTERFACE aqui... 
-	
+		
 		void insert(Seller obj);
 		
 		
@@ -23,6 +20,9 @@ public interface SellerDao {
 		
 		
 		List<Seller> findAll();
+		
+		
+		List<Seller> findByDepartment(Department department);
 		
 	
 	
