@@ -5,10 +5,10 @@ import java.io.Serializable;
 public class Department implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer id;
 	private String name;
-	
+
 	public Department() {
 	}
 
@@ -44,6 +44,9 @@ public class Department implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+
+
+
 	
 	@Override
 	public boolean equals(Object obj) {
